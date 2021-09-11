@@ -1,55 +1,75 @@
-<!--<div class="container mt-5">-->
+<div class="example-container mat-elevation-z8">
 
-<!--  <h2 align="left">OSA Job Status</h2>-->
-
-<!--  <table class="table table-striped">-->
-<!--    <thead>-->
-<!--    <tr>-->
-<!--      <th>Id</th>-->
-<!--      <th>Name</th>-->
-<!--      <th>Username</th>-->
-<!--      <th>Email</th>-->
-<!--    </tr>-->
-<!--    </thead>-->
-<!--    <tbody>-->
-<!--    <tr *ngFor="let user of Users">-->
-<!--      <td>{{ user.id }}</td>-->
-<!--      <td>{{ user.name }}</td>-->
-<!--      <td>{{ user.username }}</td>-->
-<!--      <td>{{ user.email }}</td>-->
-<!--      <td>{{ user.email }}</td>-->
-<!--    </tr>-->
-<!--    </tbody>-->
-<!--  </table>-->
-<!--</div>-->
-
-
-<div class="mat-elevation-z8">
-  <table mat-table [dataSource]="dataSource">
+<!--<div>-->
+<table mat-table [dataSource]="dataSource" >
     <!-- Position Column -->
-    <ng-container matColumnDef="position">
-      <th mat-header-cell *matHeaderCellDef> No. </th>
-      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Job Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
     </ng-container>
     <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    <ng-container matColumnDef="referenceId">
+      <th mat-header-cell *matHeaderCellDef> Service  </th>
+      <td mat-cell *matCellDef="let element"> {{element.referenceId}} </td>
     </ng-container>
     <!-- Weight Column -->
-    <ng-container matColumnDef="weight">
+  <!--  <ng-container matColumnDef="taskType">
       <th mat-header-cell *matHeaderCellDef> Weight </th>
-      <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-    </ng-container>
+      <td mat-cell *matCellDef="let element"> {{element.taskType}} </td>
+    </ng-container>-->
     <!-- Symbol Column -->
-    <ng-container matColumnDef="symbol">
-      <th mat-header-cell *matHeaderCellDef> Symbol </th>
-      <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+    <ng-container matColumnDef="createdBy">
+      <th mat-header-cell *matHeaderCellDef> createdBy </th>
+      <td mat-cell *matCellDef="let element"> {{element.createdBy}} </td>
     </ng-container>
-    <!-- Get Details -->
-    <ng-container matColumnDef="getdetails">
-      <th mat-header-cell *matHeaderCellDef> Details </th>
-      <td mat-cell *matCellDef="let element"> <button mat-raised-button color="primary" (click)="getRecord(element.name)">Get Details</button> </td>
+
+<!--    <ng-container matColumnDef="scheduleDate">-->
+<!--      <th mat-header-cell *matHeaderCellDef> scheduleDate </th>-->
+<!--      <td mat-cell *matCellDef="let element"> {{element.scheduleDate}} </td>-->
+<!--    </ng-container>-->
+    <ng-container matColumnDef="submissionDate">
+      <th mat-header-cell *matHeaderCellDef> submissionDate </th>
+      <td mat-cell *matCellDef="let element"> {{element.submissionDate}} </td>
+    </ng-container>
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef> status </th>
+      <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+    </ng-container>
+    <ng-container matColumnDef="clientName">
+      <th mat-header-cell *matHeaderCellDef> clientName </th>
+      <td mat-cell *matCellDef="let element"> {{element.clientName}} </td>
+    </ng-container>
+<!--    <ng-container matColumnDef="manufacturer">-->
+<!--      <th mat-header-cell *matHeaderCellDef> manufacturer </th>-->
+<!--      <td mat-cell *matCellDef="let element"> {{element.manufacturer}} </td>-->
+<!--    </ng-container>-->
+    <ng-container matColumnDef="countryCode">
+      <th mat-header-cell *matHeaderCellDef> countryCode </th>
+      <td mat-cell *matCellDef="let element"> {{element.countryCode}} </td>
+    </ng-container>
+    <ng-container matColumnDef="serviceId">
+      <th mat-header-cell *matHeaderCellDef> serviceId </th>
+      <td mat-cell *matCellDef="let element"> {{element.serviceId}} </td>
+    </ng-container>
+   <!-- <ng-container matColumnDef="isActive">
+      <th mat-header-cell *matHeaderCellDef> isActive </th>
+      <td mat-cell *matCellDef="let element"> {{element.isActive}} </td>
+    </ng-container>-->
+    <ng-container matColumnDef="jobName">
+      <th mat-header-cell *matHeaderCellDef> jobName </th>
+      <td mat-cell *matCellDef="let element"> {{element.jobName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="executedBy">
+      <th mat-header-cell *matHeaderCellDef> executedBy </th>
+      <td mat-cell *matCellDef="let element"> {{element.executedBy}} </td>
+    </ng-container>
+
+
+    <!-- Actions -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let element"> <button mat-raised-button color="primary" (click)="getRecord(element.id)">Action</button> </td>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

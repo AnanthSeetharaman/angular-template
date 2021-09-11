@@ -4,10 +4,20 @@ import {MatTableDataSource} from '@angular/material/table';
 import UsersJson from './users.json';
 
 interface USERS {
-    id: Number;
-    name: String;
-    username: String;
-    email: String;
+            id: number;
+            referenceId: number;
+            taskType: string;
+            createdBy: string;
+            scheduleDate: string;
+            submissionDate: string;
+            status: string;
+            clientName: string;
+            manufacturer: string;
+            countryCode: string;
+            serviceId: number;
+            isActive: string;
+            jobName: string;
+            executedBy: string;
 }
 @Component({
   selector: 'app-home',
@@ -20,7 +30,7 @@ export class HomeComponent implements OnInit {
   constructor() {
    console.log(this.Users);
    }
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', "getdetails"];
+  displayedColumns: string[] = ['actions', 'id','referenceId','submissionDate','status','clientName','countryCode','serviceId','jobName','executedBy'];
   dataSource = new MatTableDataSource<USERS>(this.Users);
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   ngOnInit() {
